@@ -41,8 +41,8 @@ export const Main = () => {
             <div className='flex items-center gap-x-4 md:gap-x-6'>
               <SelectInput
                 options={[
-                  { label: 'Serif', value: 'serif' },
                   { label: 'Sans serif', value: 'sans-serif' },
+                  { label: 'Serif', value: 'serif' },
 
                   { label: 'Mono', value: 'mono' },
                 ]}

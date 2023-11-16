@@ -19,6 +19,5 @@ export const getWord = async (keyword: string) => {
       throw err;
     }
     throw err.response.data;
-    console.log(err);
   }
 };

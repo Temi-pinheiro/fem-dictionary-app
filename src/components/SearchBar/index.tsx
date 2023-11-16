@@ -7,7 +7,6 @@ export const SearchBar = ({
   setSearch: (v: string) => void;
   keyword: string;
 }) => {
-  console.log({ keyword });
   const [value, setValue] = useState('');
   const [error, setError] = useState(false);
   const handleSubmit = (e: FormEvent) => {

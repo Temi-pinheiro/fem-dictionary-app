@@ -18,7 +18,6 @@ const ThemeProvider = ({ children }: any) => {
   const toggleFont = (style: 'sans-serif' | 'serif' | 'mono') => {
     setFont(style);
   };
-  console.log('theme');
   const getFontFamily = () => {
     switch (font) {
       case 'sans-serif':
