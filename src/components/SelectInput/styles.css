@@ -1,0 +1,14 @@
+.select-input {
+  @apply w-full px-6 text-[black] dark:text-white font-bold outline-none text-sm;
+}
+
+.dropdown-options-container {
+  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.1);
+  @apply z-10 bg-white dark:bg-[#2B3844] dark:shadow overflow-y-scroll absolute mt-6 right-0 w-full rounded-2xl min-w-[183px];
+}
+:is([data-mode='dark'] .dropdown-options-container) {
+  box-shadow: 0px 5px 30px 0px #a445ed;
+}
+.dropdown-options-container li {
+  @apply bg-transparent py-3 pl-6 text-[#0C0E16] dark:text-[#DFE3FA] hover:text-[#A445ED] dark:hover:text-[#A445ED] cursor-pointer transition duration-300 ease-in-out;
+}

@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Inter:wght@400;700&family=Lora:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+body * {
+  @apply transition-colors duration-100;
+}
+
+/* body.dark {
+  @apply bg-[#202C36];
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  @apply w-full h-full;
+} */
