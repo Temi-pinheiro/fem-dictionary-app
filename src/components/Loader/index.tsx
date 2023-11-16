@@ -1,6 +1,6 @@
 export const Loader = () => {
   return (
-    <div className='w-screen h-screen grid place-items-center'>
+    <div className='w-full h-full flex flex-col items-center mt-[132px]'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         style={{
