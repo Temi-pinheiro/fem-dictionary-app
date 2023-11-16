@@ -11,7 +11,7 @@ export const Main = () => {
   return (
     <HelmetProvider>
       <div className='w-full h-full bg-white dark:bg-[#050505]'>
-        <main className='h-full w-full max-w-[736px] mx-auto overflow-y-clip'>
+        <main className='h-full w-full max-w-[736px] mx-auto overflow-y-clip md:overflow-scroll'>
           <nav className='p-6 md:px-0 md:pt-[58px] bg-white dark:bg-[#050505] md:pb-8 bg-transparent flex w-full items-center justify-between'>
             <svg
               width='34'

@@ -7,13 +7,15 @@ export const SearchBar = ({
   setSearch: (v: string) => void;
   keyword: string;
 }) => {
-  const [value, setValue] = useState(keyword);
+  console.log({ keyword });
+  const [value, setValue] = useState('');
   const [error, setError] = useState(false);
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!value) return setError(true);
     setSearch(value);
   };
+
   return (
     <div className='w-full flex flex-col gap-y-2'>
       <form
@@ -22,15 +24,14 @@ export const SearchBar = ({
         className='flex px-8 gap-x-6 py-[14px] md:py-5 items-center w-full rounded-2xl border focus-within:border-[#A445ED] group-invalid:border-red-500 dark:border-transparent dark:focus-within:border-[#A445ED] text-[#2D2D2D] dark:text-white bg-zinc-100 dark:bg-stone-900 '
       >
         <input
-          id='bar'
-          value={value}
+          defaultValue={keyword}
           onChange={(e) => {
             if (error) {
               setError(false);
             }
             setValue(e.target.value);
           }}
-          placeholder='Search for a country…'
+          placeholder='Search for a word…'
           className='bg-transparent outline-none font-bold w-full caret-[#A445ED]'
         />
         <button type='submit'>

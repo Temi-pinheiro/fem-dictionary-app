@@ -10,8 +10,8 @@ export const WordPage = () => {
   const keyword = searchParams.get('keyword') || '';
 
   const { data: words, isLoading } = useQuery<WordData[], any>({
-    queryKey: ['definition', keyword],
-    queryFn: async () => getWord(keyword),
+    queryKey: ['definition', keyword.replace(/%20/g, ' ')],
+    queryFn: async () => getWord(keyword.replace(/%20/g, ' ')),
     enabled: Boolean(keyword),
     refetchOnMount: true,
     retry: 0,
@@ -31,17 +31,17 @@ export const WordPage = () => {
             ' | Temitope Pinheiro'}
         </title>
       </Helmet>
-      <div className='py-6 md:py-10 px-6 md:px-0 w-full h-full overflow-y-clip'>
+      <div className='py-6 md:py-10 px-6 md:px-0 w-full max-h-full flex flex-col pb-20'>
         <div className='flex flex-col md:flex-row w-full gap-y-8 md:justify-between'>
           <SearchBar
-            keyword={keyword}
+            keyword={keyword?.replace(/%20/g, ' ')}
             setSearch={(v: string) => setSearchParams({ keyword: v })}
           />
         </div>
         {isLoading ? (
           <Loader />
         ) : !keyword || !words ? (
-          <div className='flex flex-col items-center h-full mt-[132px]'>
+          <div className='flex flex-col items-center max-h-full mt-[132px]'>
             <h4 className='text-[64px]'>{!keyword ? '🔍' : '😕'}</h4>
             <span className='text-xl font-bold text-zinc-800 dark:text-white mt-11 text-center'>
               {!keyword ? 'Please search for a word' : 'No Definitions Found'}
@@ -53,10 +53,20 @@ export const WordPage = () => {
             </p>
           </div>
         ) : (
-          <div className='w-full h-full overflow-scroll'>
-            {words?.map((word, index) => (
-              <Word key={index} word={word} />
-            ))}
+          <div className='w-full mt-6 md:mt-12 pb-20 max-md:overflow-y-scroll'>
+            <span className='mb-3 font-bold text-sm text-[#757575] '>
+              {words.length} definition(s)
+            </span>
+            <ul className='flex flex-col gap-y-5 '>
+              {words?.map((word, index) => (
+                <Word
+                  key={index}
+                  count={index}
+                  total={words.length}
+                  word={word}
+                />
+              ))}
+            </ul>
           </div>
         )}
       </div>
