@@ -7,6 +7,14 @@ body,
 body * {
   @apply transition-colors duration-100;
 }
+body::-webkit-scrollbar,
+body * ::-webkit-scrollbar,
+body::-webkit-scrollbar-thumb,
+body *::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-track,
+body *::-webkit-scrollbar-track {
+  display: none;
+}
 
 /* body.dark {
   @apply bg-[#202C36];
